@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'Roboto-Condensed';
-  src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-Bold.ttf');
+  src: url('../assets/fonts/RobotoCondensed/RobotoCondensed-Bold.ttf');
   }
 
   @font-face {
     font-family: 'Titillium_Web';
-  src: url('/assets/fonts/Titillium_Web/TitilliumWeb-Bold.ttf');
+  src: url('../assets/fonts/Titillium_Web/TitilliumWeb-Bold.ttf');
   }
 
   @font-face {
     font-family: 'Titillium_Web-x';
-  src: url('/assets/fonts/Titillium_Web/TitilliumWeb-ExtraLight.ttf');
+  src: url('../assets/fonts/Titillium_Web/TitilliumWeb-ExtraLight.ttf');
   }
 
 html, body 
