@@ -1,0 +1,295 @@
+@font-face {
+    font-family: 'Roboto-Condensed';
+  src: url('/assets/fonts/RobotoCondensed/RobotoCondensed-Bold.ttf');
+  }
+
+  @font-face {
+    font-family: 'Titillium_Web';
+  src: url('/assets/fonts/Titillium_Web/TitilliumWeb-Bold.ttf');
+  }
+
+  @font-face {
+    font-family: 'Titillium_Web-x';
+  src: url('/assets/fonts/Titillium_Web/TitilliumWeb-ExtraLight.ttf');
+  }
+
+html, body 
+{
+	margin: 0;
+	font-family: 'Titillium_Web', sans-serif;
+	background-color: teal;
+	
+}
+
+
+.aside-nav,.main-content
+{
+	margin-top: 63px;
+	float: left;
+}
+
+.header
+{
+    width: 100%;
+	background-color: rgb(22,22,23);
+	position: fixed;
+	z-index: 1;
+	box-shadow: -1px -1px 1.5625rem 4px rgb(22,22,23);
+
+}
+
+.header .box-logo
+{
+	display: inline-block;
+	width: 20%;
+text-align: right;	
+vertical-align: top;
+}
+
+.header .box-nav
+{
+	
+	display: inline-block;
+	width: 79%;
+	vertical-align: top;
+
+
+}
+
+.header .box-logo .logo
+{
+	width: 150px;	
+	height: 53px;
+	padding: 5px;
+	object-fit: cover;
+
+}
+
+.header .box-nav nav ul 
+{
+	padding: 20px;
+	margin: 0;
+}
+
+.header .box-nav nav ul li
+{
+	display:inline-block;
+	color: white;
+	margin-right: 40px;
+	font-size: 20px;
+
+}
+
+.aside-nav
+{
+    width: 25%; 
+	background-color: white;
+	padding-left: 120px;
+	padding-right: 30px;
+	padding-top: 25px;
+
+	
+
+}
+
+.aside-nav div h4
+{
+	font-size: 16px;
+
+}
+
+.aside-nav div ul
+{
+	padding: 0;
+	margin-top: 8px;
+	font-family: Arial,sans-serif;
+	list-style-type: none;
+}
+
+.aside-nav div ul li
+{
+	list-style-type: none;
+	font-size: 14px;
+	margin-bottom: 10px;
+	position: relative;
+}
+
+.aside-nav div ul li:hover
+{
+	cursor: pointer;
+}
+
+.aside-nav div ul .hidden:hover
+{
+    cursor: default;
+}
+
+.aside-nav div ul .hidden::after
+{
+	content: "";
+	display: inline-block;
+	background: url(../assets/img/cross.png);
+	background-size: 18px 18px;
+    width: 18px; 
+    height: 18px;
+	position: absolute;
+	right: 4px;
+
+}
+
+.aside-nav div ul .hidden:hover::after
+{
+	cursor:pointer;
+}
+
+
+.aside-nav .box-busqueda form .buscador
+{
+	margin-top: 10px;
+	width: 100%;
+}
+
+.aside-nav .box-busqueda .btnSearch
+{
+	margin-top: 5px;
+}
+
+.aside-nav .box-consola h4,.aside-nav .box-genero h4
+,.aside-nav .box-distribuidor h4,.aside-nav .box-desarrolladores h4
+{
+	margin-top: 30px;
+}
+
+.main-content
+{
+	width: 75%; 
+	background-color: white;
+	padding-right: 120px;
+
+}
+
+.main-content .box-games
+{
+	display: flex;
+	/*LOS ELEMENTOS SE DESBORDAN*/
+	flex-wrap: wrap;
+	/*EL ESPACIO ENTRE LOS ELEMENTOS ES EL MISMO*/
+	justify-content: space-evenly;
+
+
+}
+
+.main-content .box-games article .juego
+{
+	text-align: center;
+	width: 252px;
+	margin-bottom: 50px;
+	margin-left: 30px;
+	background-color:rgb(26, 25, 25);
+	border-radius: 9px;
+	padding-bottom: 10px;
+	transition: transform .2s;
+
+}
+
+.main-content .box-games article .juego:hover {
+	transform: scale(1.1);
+	filter: brightness(70%);
+		cursor: pointer;
+
+
+  }
+
+.main-content .box-games article .juego img
+{
+	width: 100%;
+	height: 140px;
+	/*ADAPTA LA IMAGEN A SU CONTENEDOR, PERO SIN DEFORMARSE.*/
+	object-fit: cover;
+	border-top-left-radius: 9px;
+	border-top-right-radius: 9px;
+
+}
+
+/*TENGO QUE INDICARLE QUE SOLO OCUPE DOS LINEAS*/
+.main-content .box-games article .juego .gameName
+{
+	color: white;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+
+.main-content .box-games article .juego .plataforma
+{
+	display: inline-block;
+	padding-left: 4px;
+	padding-right: 4px;
+	font-size: 14px;
+	color: white;
+	margin-top:5px;
+	background-color: #C51111;
+	font-family: Arial,sans-serif;
+}
+
+.main-content .btnShowMore
+{
+	display: block;
+	height: 40px;
+	border-radius: 4px;
+	color: white;
+	background-image: linear-gradient(to bottom,rgb(209,20,20) 50%,rgb(185,14,14) 50%);
+	border: none;
+	padding-left: 45px;
+	padding-right: 45px;
+	margin: 0 auto;
+	margin-top: 100px;
+	margin-bottom: 40px;
+}
+
+.main-content .headerSections
+{
+	margin-bottom: 30px;
+}
+
+.main-content .headerSections .headerSection
+{
+	margin-top: 25px;
+	margin-left: 17px;
+	margin-bottom: 20px;
+	font-family: 'Titillium_Web-x';
+	display: inline-block;
+	font-size: 15px;
+
+
+}
+
+.main-content .headerSections .headerSection::after
+{
+	content: "";
+	display: inline-block;
+	margin-left: 10px;
+	width: 1px;
+	height: 30px;
+	background-color: #C51111;
+	vertical-align: top;
+
+
+}
+
+.main-content .headerSections .ordenar
+{	
+	display: inline-block;
+	margin-left: 13px;
+	font-size: 16px;
+}
+
+
+.main-content .headerSections .groupOptions
+{
+	margin-left: 10px;
+	display: inline-block;
+
+}
+
+
