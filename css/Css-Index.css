@@ -24,8 +24,8 @@ html, body
 
 .aside-nav,.main-content
 {
-	margin-top: 63px;
-	float: left;
+	margin-top: 56px;
+	/*float: left;*/
 }
 
 .header
@@ -67,8 +67,8 @@ vertical-align: top;
 
 .header .box-nav nav ul 
 {
-	padding: 20px;
 	margin: 0;
+	
 }
 
 .header .box-nav nav ul li
@@ -76,15 +76,15 @@ vertical-align: top;
 	display:inline-block;
 	color: white;
 	margin-right: 40px;
-	font-size: 20px;
+
 
 }
 
 .aside-nav
 {
-    width: 25%; 
+    /*width: 25%;*/
 	background-color: white;
-	padding-left: 120px;
+	/*padding-left: 120px;*/
 	padding-right: 30px;
 	padding-top: 25px;
 
@@ -109,7 +109,7 @@ vertical-align: top;
 .aside-nav div ul li
 {
 	list-style-type: none;
-	font-size: 14px;
+	font-size: 13px;
 	margin-bottom: 10px;
 	position: relative;
 }
@@ -131,9 +131,9 @@ vertical-align: top;
 	content: "";
 	display: inline-block;
 	background: url(../assets/img/cross.png);
-	background-size: 16px 16px;
-    width: 18px; 
-    height: 18px;
+	background-size: 14px 14px;
+    width: 14px; 
+    height: 14px;
 	position: absolute;
 	right: 4px;
 }
@@ -183,6 +183,7 @@ vertical-align: top;
 
 .aside-nav .box-busqueda form
 {
+	width: 100%;
 	position: relative;
 
 }
@@ -198,7 +199,7 @@ vertical-align: top;
 	background-repeat: no-repeat;
 	position: absolute;
 	top:14px;
-	left: 164px;
+	right: 0px;
 	outline: none;
 
 }
@@ -224,9 +225,9 @@ vertical-align: top;
 
 .main-content
 {
-	width: 75%; 
+	/*width: 75%; */
 	background-color: white;
-	padding-right: 120px;
+	/*padding-right: 120px;*/
 
 }
 
@@ -351,4 +352,111 @@ vertical-align: top;
 
 }
 
+/*MEDIA QUERYS LAYOUTS*/
+/*1200px o mayor.*/
+@media screen and (min-width: 1200px) {
+	
+	.aside-nav,.main-content
+	{
+		float: left;
+	}
+	.main-content
+		{width: 75%;padding-right: 80px;}
+	.aside-nav
+		{width: 25%;
+			padding-left: 80px;}
 
+			.header .box-nav nav ul li
+			{
+				font-size: 20px;
+				padding-top: 15px;
+	
+			}
+
+  }
+
+/*1200px o menor.*/
+@media screen and (max-width: 1200px) {
+	
+	.aside-nav,.main-content
+	{
+		float: left;
+	}
+	.main-content
+		{width: 75%;padding-right: 60px;}
+	.aside-nav
+		{width: 25%;
+			padding-left: 60px;}
+
+			.header .box-nav nav ul li
+		{
+			font-size: 20px;
+			padding-top: 15px;
+
+		}
+
+  }
+
+  @media screen and (max-width: 992px) 
+  {
+
+		.main-content
+		{width: 75%;
+			padding-right: 10px;}
+	.aside-nav
+		{width: 25%;
+			padding-left: 10px;}
+
+		.header .box-nav nav ul li
+		{
+			font-size: 16px;
+			padding-top: 19px;
+
+			
+		}
+
+  }
+
+  @media screen and (max-width: 768px) 
+  {
+
+		.main-content
+		{
+			/*QUITO EL PROBLEMA DEL HEADER.*/
+			margin-top: 0px;
+			width: 100%;
+			padding-right: 10px;}
+
+		/*ESTO TENGO QUE MOSTRARLO DIFERENTE.*/
+		.aside-nav
+		{			
+			width: 100%;
+			padding-left: 10px;
+		}
+		.header .box-nav nav ul li
+		{
+			font-size: 10px;
+			padding-top: 19px;
+		}
+  }
+
+  /*
+.test1
+{
+	float: left;
+	width: 100%;
+	height: 50px;
+	padding-right: 10px;
+	background-color: red;
+}
+
+.test2
+{
+	float: left;
+	width: 100%;
+	height: 50px;
+	padding-left: 10px;
+	background-color: aqua;
+}
+
+*/
