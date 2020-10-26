@@ -13,14 +13,13 @@ categorias=[];
 
 function eventoBuscador(search_value)
 {
-  
-  //OCULTO EL BOTON.
-  $(".btnSearch").hide();
   //OCULTO EL BUSCADOR.
   $(".buscador").hide();
+  //OCULTO EL BOTON DE BUSCAR.
+  $(".btnSearch").hide();
   //CREO EL ELEMENTO.
-  var element=$("<p class=resultado>"+search_value+"</p>")
-  $(element).css("color","red");
+  var element=$("<p>"+search_value+"</p>")
+  cambiarEstiloItemSelectedSearcher(element);
   //EVENTO CLICK.
   $(element).click(show);
   //AGREGO EL ELEMENTO.
@@ -30,18 +29,20 @@ function eventoBuscador(search_value)
 
 function show()
 {
-  var resultado=$(".resultado");
-  if($(resultado).css("color")=="rgb(255, 0, 0)")
+  var resultado=$(".hiddenSearcher");
+  if($(resultado).css("color")=="rgb(255, 255, 255)")
   {
     var valor="search="+$(resultado).html();
+    //ELIMINO EL ELEMENTO RESULTADO.
     $(resultado).remove();
     //QUITO AL ARRAY DE STRINGS.
     removeArray(valor);
     console.log(valor);
 
-    $(".btnSearch").show();
-    //OCULTO EL BUSCADOR.
+    //MUESTRO EL BUSCADOR.
     $(".buscador").show();
+    //MUESTRO EL BOTON.
+    $(".btnSearch").show();
   }
 }
 
@@ -193,6 +194,13 @@ function ocultarConsolas(selected)
         $(elem[i]).hide();
       }   
   }
+}
+
+function cambiarEstiloItemSelectedSearcher(selected)
+{
+  $(selected).css({"color":"white", "background-color":"rgb(180, 12, 12)",
+"border-radius":"3px", "padding":"3px"});
+$(selected).addClass("hiddenSearcher");
 }
 
 function cambiarEstiloItemSelected(selected)

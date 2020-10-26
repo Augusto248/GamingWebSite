@@ -124,17 +124,37 @@ vertical-align: top;
     cursor: default;
 }
 
+
+/*INVESTIGAR BACKGROUND SIZE.*/
 .aside-nav div ul .hidden::after
 {
 	content: "";
 	display: inline-block;
 	background: url(../assets/img/cross.png);
-	background-size: 18px 18px;
+	background-size: 16px 16px;
     width: 18px; 
     height: 18px;
 	position: absolute;
 	right: 4px;
+}
 
+.aside-nav .box-busqueda .hiddenSearcher
+{
+	font-size: 14px;
+	font-family: Arial,sans-serif;
+	position: relative;
+}
+
+.aside-nav .box-busqueda .hiddenSearcher::after
+{
+	content: "";
+	display: inline-block;
+	background: url(../assets/img/cross.png);
+	background-size: 16px 16px;
+    width: 18px; 
+    height: 18px;
+	position: absolute;
+	right: 4px;
 }
 
 .aside-nav div ul .hidden:hover::after
@@ -147,12 +167,54 @@ vertical-align: top;
 {
 	margin-top: 10px;
 	width: 100%;
+	height: 26px;
+	border: 1px rgb(165, 165, 165) solid;
+	outline: none;
+	font-size: 14px;
+
 }
 
+.aside-nav .box-busqueda form .buscador:focus
+{
+	border: 2px black solid;
+	border-radius: 3px;
+
+}
+
+.aside-nav .box-busqueda form
+{
+	position: relative;
+
+}
+
+.aside-nav .box-busqueda form .btnSearch
+{
+	display: inline-block;
+	border: none;
+	width: 23px;
+	height: 23px;
+	background: url(../assets/img/find.png);
+	background-size: 18px 18px;
+	background-repeat: no-repeat;
+	position: absolute;
+	top:14px;
+	left: 164px;
+	outline: none;
+
+}
+
+.aside-nav .box-busqueda form .btnSearch:hover
+{
+	cursor: pointer;
+}
+/*
 .aside-nav .box-busqueda .btnSearch
 {
 	margin-top: 5px;
 }
+*/
+
+
 
 .aside-nav .box-consola h4,.aside-nav .box-genero h4
 ,.aside-nav .box-distribuidor h4,.aside-nav .box-desarrolladores h4
@@ -259,9 +321,6 @@ vertical-align: top;
 	margin-bottom: 20px;
 	font-family: 'Titillium_Web-x';
 	display: inline-block;
-	font-size: 15px;
-
-
 }
 
 .main-content .headerSections .headerSection::after
