@@ -92,6 +92,8 @@ function callAjaxSearchGames()
         console.log(data);
         categorias.push("search="+search_value);
         eventoBuscador(search_value);
+        añadirHeaderSection();
+
         var btn=$(".btn").show();
 
 
@@ -592,6 +594,13 @@ function armarHeaderSection()
   //le asingo un valor a cada categoria.
   var i=0;
   //Obtengo los "li" que tengan color blanco.
+  var liBusqueda=$('.aside-nav .box-busqueda .hiddenSearcher[style*="color: white"]').text();
+  if(liBusqueda!="")
+  {
+    i=5;
+    return liBusqueda
+  }
+
   var liConsola=$('.aside-nav .box-consola ul li[style*="color: white"]').text();
   if(liConsola!="")
   {

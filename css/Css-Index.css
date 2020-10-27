@@ -17,7 +17,7 @@ html, body
 {
 	margin: 0;
 	font-family: 'Titillium_Web', sans-serif;
-	background-color: teal;
+	background-color: white;
 	
 }
 
@@ -140,9 +140,10 @@ vertical-align: top;
 
 .aside-nav .box-busqueda .hiddenSearcher
 {
-	font-size: 14px;
+	font-size: 13px;
 	font-family: Arial,sans-serif;
 	position: relative;
+	margin-top: 8px;
 }
 
 .aside-nav .box-busqueda .hiddenSearcher::after
@@ -150,9 +151,9 @@ vertical-align: top;
 	content: "";
 	display: inline-block;
 	background: url(../assets/img/cross.png);
-	background-size: 16px 16px;
-    width: 18px; 
-    height: 18px;
+	background-size: 14px 14px;
+    width: 14px; 
+    height: 14px;
 	position: absolute;
 	right: 4px;
 }
@@ -432,15 +433,18 @@ vertical-align: top;
 			width: 100%;
 			padding-right: 10px;}
 
-		/*ESTO TENGO QUE MOSTRARLO DIFERENTE.*/
 		.aside-nav
 		{			
 			width: 100%;
 			padding-left: 10px;
 		}
+
+		/*ESTO TENGO QUE MOSTRARLO DIFERENTE.*/
+		.asdas
+		{}
 		.header .box-nav nav ul li
 		{
-			font-size: 4px;
+			font-size: 0px;
 			padding-top: 19px;
 		}
   }
@@ -468,6 +472,11 @@ vertical-align: top;
 			width: 96%;
 			margin-left: 4%;
 
+		}
+
+		.main-content .box-games article .juego
+		{
+			margin-left: 0;
 		}
 		
 		
