@@ -248,7 +248,6 @@ vertical-align: top;
 	text-align: center;
 	width: 252px;
 	margin-bottom: 50px;
-	margin-left: 30px;
 	background-color:rgb(26, 25, 25);
 	border-radius: 9px;
 	padding-bottom: 10px;
@@ -256,13 +255,43 @@ vertical-align: top;
 
 }
 
+.main-content .box-games article
+{
+position: relative;
+}
+
+/*AFECTO A TODO EL DIV*/
 .main-content .box-games article .juego:hover {
 	transform: scale(1.1);
-	filter: brightness(70%);
-		cursor: pointer;
-
-
   }
+  /*AFECTO SOLO A LA IMAGEN CONTENDIDA EN EL DIV*/
+  .main-content .box-games article .juego:hover img {
+	filter: brightness(70%);
+}
+
+
+  .main-content .box-games article .juego::after 
+  {
+	  content: "";
+	display: inline-block;
+	position: absolute;
+	background: url(../assets/img/info3.png);
+	background-size: 40px 40px;
+	width:40px ;
+	height: 40px;
+	color: white;
+	visibility: hidden;
+		top: 55px;
+		left:107px;
+  }
+
+  .main-content .box-games article .juego:hover::after 
+  {
+	visibility: visible;
+	cursor: pointer;
+	
+	}
+
 
 .main-content .box-games article .juego img
 {
