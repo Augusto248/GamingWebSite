@@ -30,15 +30,26 @@ function eventoBuscador(search_value)
  
 }
 
-function closePopUp()
+function callAJaxInfoGameSelected(gamePK)
 {
-  //DEJO DE MOSTRAR EL POPUP.
-  $("#popUp").css("display","none");
+  var jqxhr = $.get( "https://api.rawg.io/api/games/"+gamePK+"", function() 
+  {
+    })
+      .done(function(data) 
+      {
+          $(".fondo").attr("src", data.background_image);
+          $(".imagen").attr("src", data.background_image);
+          var title=$("<h1>"+data.name+"</h1>");
+          $(".gameInfo").append(title);
+          $(".gameInfo").append(data.description);
 
-  //MUESTRO EL SCROLL DEL BODY CUANDO DESAPARECE EL POPUP.
-  $('body').css('overflow', 'scroll');
-
+      })
+      .fail(function() {
+        alert( "error" );
+      });
+    
 }
+
 
 function eventInfo()
 {
@@ -47,9 +58,34 @@ function eventInfo()
 
   //QUITO EL SCROLL DEL BODY CUANDO SURGE EL POPUP.
   $('body').css('overflow', 'hidden');
+
   //DESDE ACA VOY A LLENAR EL POPUP DE INFORMACION CON AJAX.
 
+  //OBTENGO LOS ELEMENTOS HERMANOS DEL BOTON INFO, Y SOLO OBTENGO EL HERMANO
+  //CON LA CLASE ."gameNAME".
+  var gameName=$(this).attr('id');
+
+  console.log(gameName);
+  callAJaxInfoGameSelected(gameName);
+
 }
+
+function closePopUp()
+{
+  //DEJO DE MOSTRAR EL POPUP.
+  $("#popUp").css("display","none");
+
+  //MUESTRO EL SCROLL DEL BODY CUANDO DESAPARECE EL POPUP.
+  $('body').css('overflow', 'scroll');
+
+  //SETEO TODO EN VACIO.
+  $(".fondo").attr("src", "");
+  $(".imagen").attr("src", "");
+
+  $(".gameInfo").empty();
+
+}
+
 
 function show()
 {
@@ -442,11 +478,12 @@ function callAjaxCategorySelected()
 
         juegos.forEach(element => 
           {
-              añadirNodosJuegos(element.background_image,element.name,i);            
+              añadirNodosJuegos(element.background_image,element.name,i,element.id);            
               i++;
         });
 
         botonInfoEvent();
+
 
         //Muestro el boton.
         if(i>10)
@@ -593,7 +630,7 @@ function añadirNodosItemsDesarrollador(itemsName,id)
 }
 
 //AGREGAR ICONITOS A LAS PLATAFORMAS.
-function añadirNodosJuegos(img,name,i)
+function añadirNodosJuegos(img,name,i,pk)
 {
     
     var divGames=$(".box-games");
@@ -601,7 +638,7 @@ function añadirNodosJuegos(img,name,i)
     if(i<=10)
     {
       divGames.append("<article>"+"<div class=juego>"+"<img class=imgPhoto src="+img+"></img>"
-      +"<img class=infoIcon src=assets/img/info3.png></img>"
+      +"<img id="+pk+" class=infoIcon src=assets/img/info3.png></img>"
       +"<img class=favoriteIcon src=assets/img/heart.png></img>"+"<p class=gameName>"+nameUpper+"</p>"+"<p class=plataforma>asd</p>"+"</div>"+"</article>");
     }
     
