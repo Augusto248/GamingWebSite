@@ -6,6 +6,8 @@ $(document).ready(function()
   callAjaxItemsDesarrollador();
   var btnSearch=$(".btnSearch").click(callAjaxSearchGames);
   var btn=$(".btnShowMore").click(showHiden);
+  $(".closeModal").click(closePopUp);
+
   $(btn).hide();
 });
 
@@ -24,7 +26,29 @@ function eventoBuscador(search_value)
   $(element).click(show);
   //AGREGO EL ELEMENTO.
   $(".box-busqueda").append(element);
+
  
+}
+
+function closePopUp()
+{
+  //DEJO DE MOSTRAR EL POPUP.
+  $("#popUp").css("display","none");
+
+  //MUESTRO EL SCROLL DEL BODY CUANDO DESAPARECE EL POPUP.
+  $('body').css('overflow', 'scroll');
+
+}
+
+function eventInfo()
+{
+  //MUESTRO EL POPUP
+  $("#popUp").css("display","block");
+
+  //QUITO EL SCROLL DEL BODY CUANDO SURGE EL POPUP.
+  $('body').css('overflow', 'hidden');
+  //DESDE ACA VOY A LLENAR EL POPUP DE INFORMACION CON AJAX.
+
 }
 
 function show()
@@ -96,6 +120,8 @@ function callAjaxSearchGames()
 
         var btn=$(".btn").show();
 
+        /*ASIGNO EL EVENTO PARA EL BOTON DE INFO.*/
+        botonInfoEvent();
 
       })
       .fail(function() {
@@ -420,6 +446,8 @@ function callAjaxCategorySelected()
               i++;
         });
 
+        botonInfoEvent();
+
         //Muestro el boton.
         if(i>10)
         {
@@ -433,6 +461,17 @@ function callAjaxCategorySelected()
         alert( "error" );
       });
 }
+
+function botonInfoEvent()
+{
+   var btnInfo=$(".infoIcon");
+   for(var i=0;i<btnInfo.length;i++)
+   {
+     $(btnInfo[i]).click(eventInfo);
+   }
+}
+
+
 
 function callAjaxItemsGeneros()
 {
@@ -561,15 +600,16 @@ function añadirNodosJuegos(img,name,i)
     var nameUpper = name.toUpperCase();
     if(i<=10)
     {
-      divGames.append("<article>"+"<div class=juego>"+"<img class=imga src="+img+"></img>"
-      +"<p class=gameName>"+nameUpper+"</p>"+"<p class=plataforma>asd</p>"+"</div>"+"</article>");
+      divGames.append("<article>"+"<div class=juego>"+"<img class=imgPhoto src="+img+"></img>"
+      +"<img class=infoIcon src=assets/img/info3.png></img>"
+      +"<img class=favoriteIcon src=assets/img/heart.png></img>"+"<p class=gameName>"+nameUpper+"</p>"+"<p class=plataforma>asd</p>"+"</div>"+"</article>");
     }
     
     //ESTOS ARTICULOS ESTARAN OCULTOS.
     else
     {
-      var article=$("<article>"+"<div class=juego>"+"<img class=imga src="+img+"></img>"
-      +"<p class=gameName>"+nameUpper+"</p>"+"<p class=plataforma>asd</p>"+"</div>"+"</article>").hide();
+      var article=$("<article>"+"<div class=juego>"+"<img class=imgPhoto src="+img+"></img>"
+      +"<a href=#popUp><img class=infoIcon src=assets/img/info3.png></img></a>"+"<p class=gameName>"+nameUpper+"</p>"+"<p class=plataforma>asd</p>"+"</div>"+"</article>").hide();
       divGames.append(article);
     }
 }

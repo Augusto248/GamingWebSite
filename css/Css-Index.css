@@ -18,7 +18,6 @@ html, body
 	margin: 0;
 	font-family: 'Titillium_Web', sans-serif;
 	background-color: white;
-	
 }
 
 
@@ -265,32 +264,56 @@ position: relative;
 	transform: scale(1.1);
   }
   /*AFECTO SOLO A LA IMAGEN CONTENDIDA EN EL DIV*/
-  .main-content .box-games article .juego:hover img {
+  .main-content .box-games article .juego:hover .imgPhoto {
 	filter: brightness(70%);
 }
 
 
-  .main-content .box-games article .juego::after 
+  .main-content .box-games article .juego .infoIcon
   {
 	  content: "";
 	display: inline-block;
 	position: absolute;
-	background: url(../assets/img/info3.png);
+	background-size: 37px 37px;
+	width:37px ;
+	height: 37px;
+	visibility: hidden;
+		top: 55px;
+		left:82px;
+  }
+
+  .main-content .box-games article .juego .favoriteIcon
+  {
+	  content: "";
+	display: inline-block;
+	position: absolute;
 	background-size: 40px 40px;
 	width:40px ;
 	height: 40px;
-	color: white;
 	visibility: hidden;
-		top: 55px;
-		left:107px;
+	top: 53px;
+	left:133px;
+	filter: brightness(0) invert(1);
   }
 
-  .main-content .box-games article .juego:hover::after 
+  .main-content .box-games article .juego:hover .infoIcon,
+  .main-content .box-games article .juego:hover .favoriteIcon
   {
 	visibility: visible;
-	cursor: pointer;
-	
 	}
+
+	.main-content .box-games article .juego .infoIcon:hover
+	{
+	  cursor: pointer;
+	  
+	  }
+
+	  .main-content .box-games article .juego .favoriteIcon:hover
+	  {
+		cursor: pointer;
+		filter: sepia(100%) saturate(100);
+		
+		}
 
 
 .main-content .box-games article .juego img
@@ -382,10 +405,109 @@ position: relative;
 	border: 1px rgb(168, 168, 168) solid;
 	color: rgb(75, 75, 75);
 	font-size: 15px;
+}
 
+#popUp
+{
+	display: none;
+    position: fixed;
+	/*INVESTIGAR POR QUE SE CENTRA*/
+	left: 0; 
+	right: 0; 
+	margin-left: auto; 
+	margin-right: auto; 
+	color: white;
+	width: 100%;
+	height: 100%;
+	margin: 0 auto;
+	z-index: 2;
+	background: rgba(0, 0, 0); /* Black color with 50% alpha/opacity */
+}
+
+.asdas
+{}
+
+
+#popUp .fondo
+{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	opacity: 0.2;
+
+}
+
+#popUp div{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#popUp .closeModal{
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	right:12px;
+	top:10px;
+	background-color: white;
+	color: black;
+	border-radius: 100%;
+	padding-left:11px;
+	padding-top:4px;
+	z-index: 1;
+}
+
+#popUp .closeModal:hover
+{
+	cursor: pointer;
+}
+
+#popUp div .imagenGame
+{
+	display: inline-block;
+	margin-top: 50px;
+	padding-left: 30px;
+	width: 20%;
+	position: static;
+
+}
+
+#popUp div .imagenGame .imagen
+{
+	width: 100%;
+	height: 275px;
+	object-fit: cover;
+
+}
+
+#popUp div .gameInfo 
+{
+	display: inline-block;
+	margin-top: 50px;
+	padding-left: 30px;
+	width: 70%;
+	position: static;
+	vertical-align: top;
 
 
 }
+
+#popUp div .gameInfo h1
+{
+	display: block;	
+}
+
+
+#popUp div .gameInfo p
+{
+	display: inline-block;
+	margin-top: 20px;
+}
+
+
+
+
 
 /*MEDIA QUERYS LAYOUTS*/
 /*1200px o mayor.*/
