@@ -407,7 +407,7 @@ position: relative;
 
 #popUp
 {
-	position: absolute;
+	position: fixed;
 	/*INVESTIGAR POR QUE SE CENTRA*/
 	left: 0; 
 	right: 0; 
