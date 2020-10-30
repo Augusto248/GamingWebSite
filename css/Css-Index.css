@@ -411,6 +411,7 @@ position: relative;
 	/*INVESTIGAR POR QUE SE CENTRA*/
 	left: 0; 
 	right: 0; 
+	display: none;
 	margin-left: auto; 
 	margin-right: auto; 
 	color: white;
