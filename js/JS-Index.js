@@ -166,7 +166,7 @@ function callAjaxSearchGames()
         var i=1;
         juegos.forEach(element => 
           {
-              añadirNodosJuegos(element.background_image,element.name,i);
+              añadirNodosJuegos(element.background_image,element.name,i,element.id);
               i++;
         });
         console.log(data);
