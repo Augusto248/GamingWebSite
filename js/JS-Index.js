@@ -37,11 +37,29 @@ function callAJaxInfoGameSelected(gamePK)
     })
       .done(function(data) 
       {
+          //IMAGEGAME.
           $(".fondo").attr("src", data.background_image);
           $(".imagen").attr("src", data.background_image);
+          //INFO
           var title=$("<h1>"+data.name+"</h1>");
+          var details=$("<ul></ul>");
           $(".gameInfo").append(title);
           $(".gameInfo").append(data.description);
+          //DETALLES
+          var title=$("<h3>DETALLES</h3>");
+          var desarrollador=$("<li>Desarrollador:<span>"+data.developers[0].name+"</span></li>");
+          var publisher=$("<li>Publisher:<span>"+data.publishers[0].name+"</span></li>");
+          //DETALLES-GENEROS
+          var generos=data.genres;
+          var nombres="";
+          for(var i=0;i<generos.length;i++)
+          {
+              nombres=nombres+generos[i].name+" ";
+          }
+          var genero=$("<li>Genero:<span>"+nombres+"</span></li>");
+          var fechaLanzamiento=$("<li>Fecha de lanzamiento:<span>"+data.released+"</span></li>");
+          $(".gameDetails").append(title,details);
+          $(".gameDetails ul").append(desarrollador,publisher,genero,fechaLanzamiento);
 
       })
       .fail(function() {
@@ -83,6 +101,8 @@ function closePopUp()
   $(".imagen").attr("src", "");
 
   $(".gameInfo").empty();
+
+  $(".gameDetails").empty();
 
 }
 

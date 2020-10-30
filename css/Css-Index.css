@@ -99,10 +99,8 @@ vertical-align: top;
 
 .aside-nav div ul
 {
-	padding: 0;
 	margin-top: 8px;
 	font-family: Arial,sans-serif;
-	list-style-type: none;
 }
 
 .aside-nav div ul li
@@ -409,8 +407,7 @@ position: relative;
 
 #popUp
 {
-	display: none;
-    position: fixed;
+	position: fixed;
 	/*INVESTIGAR POR QUE SE CENTRA*/
 	left: 0; 
 	right: 0; 
@@ -422,10 +419,8 @@ position: relative;
 	margin: 0 auto;
 	z-index: 2;
 	background: rgba(0, 0, 0); /* Black color with 50% alpha/opacity */
+	overflow-y: auto;
 }
-
-.asdas
-{}
 
 
 #popUp .fondo
@@ -435,13 +430,14 @@ position: relative;
 	height: 100%;
 	object-fit: cover;
 	opacity: 0.2;
+	
+
 
 }
 
 #popUp div{
 	position: absolute;
 	width: 100%;
-	height: 100%;
 }
 
 #popUp .closeModal{
@@ -486,10 +482,44 @@ position: relative;
 	display: inline-block;
 	margin-top: 50px;
 	padding-left: 30px;
-	width: 70%;
+	width: 50%;
 	position: static;
 	vertical-align: top;
+}
 
+#popUp div .gameDetails 
+{
+	display: inline-block;
+	width: 29%;
+	position: static;
+	vertical-align: top;
+	margin-top: 50px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+
+#popUp div .gameDetails ul li
+{
+	margin-top: 10px;
+	color: #9A9DA4;
+	font-size: 15px;
+}
+#popUp div .gameDetails ul li::after
+{
+content: "";
+display: block;
+width: 100%;
+height: 1px;
+margin-top: 4px;
+background-color: rgb(154, 157, 164);
+background: rgba(154, 157, 164, 0.5);
+}
+#popUp div .gameDetails ul li span
+{
+	padding-left: 6px;
+	color: white;
+	font-family: 'Arial';
 
 }
 
@@ -503,9 +533,19 @@ position: relative;
 {
 	display: inline-block;
 	margin-top: 20px;
+	font-family: 'Arial';
+
 }
 
+#popUp div .imagenGame .favorite
+{
+	display: block;
+	width: 50px;
+	height: 50px;
+	margin: 0 auto;
+	filter: brightness(0) invert(1);
 
+}
 
 
 
@@ -567,9 +607,33 @@ position: relative;
 		.header .box-nav nav ul li
 		{
 			font-size: 16px;
-			padding-top: 19px;
+			padding-top: 19px;		
+		}
+		#popUp div .imagenGame
+		{
+			width: 100%;
+			padding-right: 30px;
+		}
+		/*INVESTIGAR OBBJECT POSITION*/
+		
+		#popUp div .imagenGame .imagen
+		{
+			width: 100%;
+			height: 275px;
+			object-fit: cover;
+			object-position: 50% 10%; /* default value: image is centered*/
+		}
+		#popUp div .gameInfo 
+		{
 
-			
+			width: 100%;
+			padding-right: 30px;
+
+		}
+
+		#popUp div .gameDetails 
+		{
+			width: 100%;
 		}
 
   }
