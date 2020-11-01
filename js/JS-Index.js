@@ -40,6 +40,9 @@ function callAJaxInfoGameSelected(gamePK)
           //IMAGEGAME.
           $(".fondo").attr("src", data.background_image);
           $(".imagen").attr("src", data.background_image);
+          //FAVORITO
+          var btnFavorite=$("<img class=favorite></img>").attr("src","./assets/img/heart.png");;
+          $(".imagenGame").append(btnFavorite);
           //INFO
           var title=$("<h1>"+data.name+"</h1>");
           var details=$("<ul></ul>");
@@ -51,15 +54,31 @@ function callAJaxInfoGameSelected(gamePK)
           var publisher=$("<li>Publisher:<span>"+data.publishers[0].name+"</span></li>");
           //DETALLES-GENEROS
           var generos=data.genres;
-          var nombres="";
+          var gen="";
           for(var i=0;i<generos.length;i++)
           {
-              nombres=nombres+generos[i].name+" ";
+            gen=gen+generos[i].name+" ";
           }
-          var genero=$("<li>Genero:<span>"+nombres+"</span></li>");
+           //DETALLES-CONSOLAS
+           var platforms=data.platforms;
+           var plat="";
+           for(var i=0;i<platforms.length;i++)
+           {
+              if(i!=platforms.length-1)
+              {
+                plat=plat+platforms[i].platform.name+", ";
+              }
+              //EL ULTIMO ELEMENTO NO TENDRA UNA COMA.
+              else
+              {
+                plat=plat+platforms[i].platform.name;
+              }
+           }
+          var genero=$("<li>Genero:<span>"+gen+"</span></li>");
           var fechaLanzamiento=$("<li>Fecha de lanzamiento:<span>"+data.released+"</span></li>");
+          var plataformas=$("<li>Plataformas:<span>"+plat+"</span></li>");
           $(".gameDetails").append(title,details);
-          $(".gameDetails ul").append(desarrollador,publisher,genero,fechaLanzamiento);
+          $(".gameDetails ul").append(desarrollador,publisher,genero,plataformas,fechaLanzamiento);
 
       })
       .fail(function() {
@@ -101,6 +120,9 @@ function closePopUp()
   $(".imagen").attr("src", "");
 
   $(".gameInfo").empty();
+  $(".favorite").remove();
+
+  
 
   $(".gameDetails").empty();
 

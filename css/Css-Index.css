@@ -292,6 +292,7 @@ position: relative;
 	top: 53px;
 	left:133px;
 	filter: brightness(0) invert(1);
+	transition: transform .1s;
   }
 
   .main-content .box-games article .juego:hover .infoIcon,
@@ -309,9 +310,13 @@ position: relative;
 	  .main-content .box-games article .juego .favoriteIcon:hover
 	  {
 		cursor: pointer;
-		filter: sepia(100%) saturate(100);
-		
-		}
+	  }
+
+	  .main-content .box-games article .juego .favoriteIcon:active
+	  {
+		filter: sepia(100%) saturate(100);	
+		transform: scale(1.3);
+	  }
 
 
 .main-content .box-games article .juego img
