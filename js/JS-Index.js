@@ -1,5 +1,6 @@
 $(document).ready(function()
 {
+  loadHeader();
   callAjaxItemsConsola();
   callAjaxItemsGeneros();
   callAjaxItemsDistribuidor();
@@ -12,6 +13,13 @@ $(document).ready(function()
 });
 
 categorias=[];
+
+
+function loadHeader()
+{
+  $("#header").load("components/html/header.html"); 
+  $("#footer").load("footer.html"); 
+}
 
 function eventoBuscador(search_value)
 {
@@ -677,12 +685,22 @@ function añadirNodosJuegos(img,name,i,pk)
     
     var divGames=$(".box-games");
     var nameUpper = name.toUpperCase();
+    var div=$("<div class=platformsIcons></div>");
+    //DESDE ACA ESPECIFICO QUE ICONOS DE PLATAFORMA TENDRA EL JUEGO.
+    cargarIconsPlatforms(div,pk);
+    
+  
     if(i<=10)
     {
-      divGames.append("<article>"+"<div class=juego>"+"<img class=imgPhoto src="+img+"></img>"
+      divGames.append("<article>"+"<div class=juego id=juego"+pk+">"+"<img class=imgPhoto src="+img+"></img>"
       +"<img id="+pk+" class=infoIcon src=assets/img/info3.png></img>"
-      +"<img class=favoriteIcon src=assets/img/heart.png></img>"+"<p class=gameName>"+nameUpper+"</p>"+"<p class=plataforma>asd</p>"+"</div>"+"</article>");
+      +"<img class=favoriteIcon src=assets/img/heart.png></img>"+"</div>"+"</article>");
+      $("#juego"+pk).append(div);
+      $("#juego"+pk).append("<p class=gameName>"+nameUpper+"</p>");
+
+
     }
+
     
     //ESTOS ARTICULOS ESTARAN OCULTOS.
     else
@@ -691,6 +709,44 @@ function añadirNodosJuegos(img,name,i,pk)
       +"<a href=#popUp><img class=infoIcon src=assets/img/info3.png></img></a>"+"<p class=gameName>"+nameUpper+"</p>"+"<p class=plataforma>asd</p>"+"</div>"+"</article>").hide();
       divGames.append(article);
     }
+}
+
+function cargarIconsPlatforms(div,pk)
+{
+  var jqxhr = $.get( "https://api.rawg.io/api/games/"+pk+"", function() 
+    {
+      })
+        .done(function(data) 
+        {
+          var platforms=data.parent_platforms;
+          for(var i=0;i<platforms.length;i++)
+          {
+            if(platforms[i].platform.name=="PlayStation")
+            {
+            var icon=$("<img class=iconPlatform src=assets/img/PlayStation.png></img>");
+            $(div).append(icon);
+            }
+            if(platforms[i].platform.name=="Xbox")
+            {
+            var icon=$("<img class=iconPlatform src=assets/img/Xbox.png></img>");
+            $(div).append(icon);
+            }
+            if(platforms[i].platform.name=="Nintendo")
+            {
+            var icon=$("<img class=iconPlatformNintendo src=assets/img/Nintendo.png></img>");
+            $(div).append(icon);
+            }
+            if(platforms[i].platform.name=="PC")
+            {
+            var icon=$("<img class=iconPlatform src=assets/img/PC.png></img>");
+            $(div).append(icon);
+            }
+          }
+  
+        })
+        .fail(function() {
+          alert( "error" );
+        });
 }
 
 function añadirHeaderSection()

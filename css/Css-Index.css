@@ -27,56 +27,14 @@ html, body
 	/*float: left;*/
 }
 
-.header
+#header .box-nav nav ul :first-child::after
 {
-    width: 100%;
-	background-color: rgb(22,22,23);
-	position: fixed;
-	z-index: 1;
-	box-shadow: -1px -1px 1.5625rem 4px rgb(22,22,23);
-
-}
-
-.header .box-logo
-{
-	display: inline-block;
-	width: 20%;
-text-align: right;	
-vertical-align: top;
-}
-
-.header .box-nav
-{
-	
-	display: inline-block;
-	width: 79%;
-	vertical-align: top;
-
-
-}
-
-.header .box-logo .logo
-{
-	width: 150px;	
-	height: 53px;
-	padding: 5px;
-	object-fit: cover;
-
-}
-
-.header .box-nav nav ul 
-{
-	margin: 0;
-	
-}
-
-.header .box-nav nav ul li
-{
-	display:inline-block;
-	color: white;
-	margin-right: 40px;
-
-
+	content:"";
+	display: block;
+	width: inherit;
+    height: 4px;
+    margin-top: 8px;
+	background-color: #C51111;
 }
 
 .aside-nav
@@ -247,7 +205,7 @@ vertical-align: top;
 	margin-bottom: 50px;
 	background-color:rgb(26, 25, 25);
 	border-radius: 9px;
-	padding-bottom: 10px;
+	padding-bottom: 5px;
 	transition: transform .2s;
 
 }
@@ -319,7 +277,7 @@ position: relative;
 	  }
 
 
-.main-content .box-games article .juego img
+.main-content .box-games article .juego .imgPhoto
 {
 	width: 100%;
 	height: 140px;
@@ -334,22 +292,35 @@ position: relative;
 .main-content .box-games article .juego .gameName
 {
 	color: white;
+	padding-top: 3px;
 	padding-left: 5px;
 	padding-right: 5px;
 }
 
-
-.main-content .box-games article .juego .plataforma
+.main-content .box-games article .juego .platformsIcons
 {
 	display: inline-block;
-	padding-left: 4px;
-	padding-right: 4px;
-	font-size: 14px;
-	color: white;
-	margin-top:5px;
-	background-color: #C51111;
-	font-family: Arial,sans-serif;
+	padding-top: 4px;
+
 }
+.main-content .box-games article .juego .platformsIcons .iconPlatform
+{
+	width: 16px;
+	height: 16px;
+	object-fit: cover;
+	margin-left: 10px;
+}
+
+.main-content .box-games article .juego .platformsIcons .iconPlatformNintendo
+{
+	width: 19px;
+	height: 14px;
+	object-fit: cover;
+	margin-left: 10px;
+}
+
+
+
 
 .main-content .btnShowMore
 {
