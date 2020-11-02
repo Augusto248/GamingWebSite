@@ -17,7 +17,7 @@ categorias=[];
 
 function loadHeader()
 {
-  $("#header").load("components/html/header.html"); 
+  $("#header").load("/components/html/header.html"); 
   $("#footer").load("footer.html"); 
 }
 
