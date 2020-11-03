@@ -11,7 +11,7 @@ html, body
 	background-color: white;
 }
 
-#header .box-nav nav ul :last-child::after
+#header .box-nav nav ul li:last-child::after
 {
 	content:"";
 	display: block;

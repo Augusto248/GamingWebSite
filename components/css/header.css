@@ -68,6 +68,15 @@ vertical-align: top;
 	margin-right: 30px;
 	font-size: 20px;
 	padding-top: 13px;
+}
 
+.header .box-nav nav ul li a
+{
+	text-decoration: none;
+	color: white;
+}
 
+.header .box-nav nav ul li:hover
+{
+	cursor: pointer;	
 }
