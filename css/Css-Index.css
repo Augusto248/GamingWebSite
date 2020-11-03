@@ -263,8 +263,6 @@ html, body
 	height: 20px;
 	background-color: #C51111;
 	vertical-align: top;
-
-
 }
 .main-content .box-games article .juego
 {
@@ -707,6 +705,8 @@ background: rgba(154, 157, 164, 0.5);
 			font-size: 0px;
 			padding-top: 19px;
 		}
+
+
   }
 
   @media screen and (max-width: 578px) 
@@ -739,6 +739,27 @@ background: rgba(154, 157, 164, 0.5);
 			margin-left: 0;
 		}
 		
+		.main-content .headerSections .headerSectionDefault2
+		{
+			margin-top: 0;
+			margin-left: 17px;
+			margin-bottom: 20px;
+			font-family: 'Titillium_Web-x';
+			display: block;
+			text-align: left;
+			color: black;
+		}
+		
+		.main-content .headerSections .headerSectionDefault2::after
+		{
+			content: "";
+			display: inline-block;
+			margin-left: 10px;
+			width: 1px;
+			height: 20px;
+			background-color: #C51111;
+			vertical-align: top;
+		}
 		
   }
 
